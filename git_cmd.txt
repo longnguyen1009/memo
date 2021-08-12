@@ -41,6 +41,10 @@ git fetch <name_branch>
 
 git pull origin master
 
+git pull = git fetch + git merge
+git fetch origin
+git merge origin/master
+
 
 3. Status: Check cac thay doi hien tai
 
@@ -119,7 +123,19 @@ git reset HEAD test2.html #reset lai de xoa thay doi remove trong staged
 git checkout -- test2.html #khoi phuc lai file nhu commit truoc do
 
 
+5. Branch
+https://xuanthulab.net/lam-viec-voi-nhanh-branch-tao-nhanh-gop-nhanh-trong-git.html
 
+6. Git Merge
+Merge se chech 2 nhanh, can cu vao 3 commit de tao ra commit gop. Neu co xung dot thi phai xu ly.
+
+7. git push
+
+# Ghi de 1 nhanh cua remote vao 1 nhanh tren local
+git push --force origin master
+
+# xoa 1 nhanh tren remote
+git push origin --delete branch_name
 
 
 
