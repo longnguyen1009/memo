@@ -1,0 +1,70 @@
+1. Install 
+- Download and install at https://hub.docker.com/editions/community/docker-ce-desktop-windows/
+- 
+
+
+2. GIT
+
+B1. Git Init (init tai vi tri dung voi folder branch)
+git init
+
+B2. Add remote
+git remote add origin https://github.com/longnguyen1009/ecshirt.git
+
+B3. Check out vao 1 nhanh
+git checkout master
+
+B4. Add
+git add .
+git add <folder>
+git add <ten file>
+git add /path/to/folder/*.* (ONLY file in folder)
+
+//unstage files 
+git reset HEAD -- path/to/file
+git reset HEAD -- .
+git reset //all file
+
+B5. Commit
+git commit -m "commit"
+
+B6. Push
+git push origin <branch>
+git push -f origin master
+
+===========================================
+1. Fetch: lấy source code từ server về Local Repository
+
+git fetch <name_branch>
+
+2. Pull: gộp những thay đổi mới kéo về từ máy chủ với nhánh hiện tại trên máy local
+
+git pull origin master
+
+
+3. Status: Check cac thay doi hien tai
+
+git status
+
+4. Diff: Hiện thị các thay đổi bạn đã thực hiện mà chưa add, commit.
+
+git diff
+
+5. git push -f origin master
+ghi de code len master
+
+6. Merge
+git merge --allow-unrelated-histories origin/main
+
+===========================================
+
+DOCKER COMMAND
+
+1. 
+
+docker-compose exec ec-cube bash
+
+bin/console <xxx>
+
+
+

@@ -1,0 +1,77 @@
+1. Memo
+- Khi một phiên bản của image chạy, phiên bản chạy đó gọi là container - 
+(vậy muốn có container phải có image)
+
+2. Docker basic
+
+#kiểm tra phiên bản
+docker --version
+
+# liệt kê các image
+docker images -a
+
+# xóa một image (phải không container nào đang dùng)
+docker images rm imageid
+
+# tải về một image (imagename) từ hub.docker.com
+docker pull imagename
+
+# liệt kê các container
+docker container ls -a
+
+# xóa container
+docker container rm containerid
+
+# tạo mới một container
+docker run -it imageid 
+
+# thoát termial vẫn giữ container đang chạy
+CTRL +P, CTRL + Q , exit
+
+# Vào termial container đang chạy
+docker container attach containerid
+
+# Chạy container đang dừng
+docker container start -i containerid
+
+# Chạy một lệnh trên container đang chạy
+docker exec -it containerid command
+
+3. Create new image and save file
+
+# download centos image
+- docker pull centos 
+# create container from image contos
+docker run -it --name mycentos centos
+# install SSH Client to mycentos
+yum install openssh-clients
+# save container to images, name is centos-ssh:v1
+docker stop mycentos
+docker commit mycentos contos-ssh:v1
+
+# xóa container cũ
+docker container rm mycentos
+# create new container from new image, (ssh was installed)
+docker run --name newcontainer -it centos-ssh:v1
+
+# Save image to file
+#lưu ra file, có thể chỉ ra đường dẫn đầy đủ nơi lưu file
+docker save --output myimage.tar myimage
+#import saved file to docker
+docker load -i myimage.tar
+# change name of image
+docker tag image_id imagename:version
+
+
+4. Shared data between Docker Host and container
+
+# chia se du lieu giua thu muc may host va container
+# when run container, param: -v path_to_data:path_in_containe
+docker run -it -v /home/sitesdata:\home/data ubuntu
+
+# chia se du lieu giua cac container
+# container_first la container da shard voi host hoac voi cac container khac
+# create new contaier shared data with container first
+docker run -it --volumes-from container_first ubuntu
+
+
