@@ -77,7 +77,54 @@ git reset -- filename
 # hien thi log cua 2 commit cuoi cung
 git log -2
 
-#
+3. GIT checkout switch, restore
+
+# chuyen nhanh
+git checkout branch
+
+# phuc hoi file tu commit cu hon
+# HASH la ma HASH cu commit cu
+git checkout HASH file_name
+
+#check out ve tat ca cac file
+git checkout -- .
+
+#TRO VE han 1 commit cu
+git checkout HASH
+#khi do, con tro HEAD se chuyen ve commit cu, khi ban sua thi can luu lai thanh 1 nhanh moi
+git switch -c ten-nhanh-moi
+
+# Sử dụng git switch
+# Lệnh này dùng để chuyển nhánh và có thể tạo nhánh mới, ví dụ chuyển về nhánh master
+git switch master
+
+# Tạo nhánh mới, kích hoạt nhánh bắt đầu từ một commit có mã HASH
+git switch -c ten-nhanh HASH
+
+# Hoặc tạo nhanh từ commit cuối
+git switch -c ten-nhanh
+
+#Chuyển về làm việc tại nhánh tạm thời bắt đầu từ commit có mã HASH
+git switch --detach HASH
+
+4. Git diff
+
+https://xuanthulab.net/cac-lenh-git-co-ban-lam-viec-voi-repository.html
+# lệnh git diff so sánh sự khác nhau giữa bản trong thư mục làm việc và bản trong staged nếu có, 
+# nếu không có thì so sánh với bản commit cuối. 
+# Lệnh git diff --staged so sánh giữa bản trong staged và bản commit
+
+# Phuc hoi lai file da xoa
+git reset HEAD test2.html #reset lai de xoa thay doi remove trong staged
+git checkout -- test2.html #khoi phuc lai file nhu commit truoc do
+
+
+
+
+
+
+
+
 
 
 
