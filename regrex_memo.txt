@@ -1,0 +1,89 @@
+URL: https://xuanthulab.net/bieu-thuc-chinh-quy-regexp.html
+
+# KI TU 
+.	    Biểu diễn bất kỳ ký tự nào ngoài trừ ký tự xuống dòng
+[ ]	    Tập hợp ký tự. Phù hợp nếu có bất kỳ ký tự nào trong dấu []
+[^ ]	Tập hợp ký tự phủ định. Phù hợp nếu không có ký tự nào trong []
+*	    Lặp lại 0 đến nhiều lần.
++	    Lặp lại 1 hoặc nhiều lần
+?	    Tùy chọn có hay không cho mẫu phía trước
+{n,m}	Độ dài tối thiểu là n tối đa là m
+(xyz)	Biểu diễn một nhóm.
+|	    Biểu diễn thay thế, phép toán or
+\	    Biểu diễn ký tự đặc biệt [ ] ( ) { } . * + ? ^ $ \ |
+^	    Điểm bắt đầu của dòng.
+$	    Điểm kết thúc của dòng
+
+
+# TAP HOP
+
+\w	Chữ,sô, và _, tương đương với: [a-zA-Z0-9_]
+\W	Ngoài bảng chữ cái, tương đương với: [^\w]
+\d	Các số: [0-9]
+\D	Không phải số: [^\d]
+\s	Là ký tự trắng, tương đương với: [\t\n\f\r\p{Z}]
+\S	Không phải ký tự trắng: [^\s]
+
+# BIEU THUC
+
+?=lookahead: Theo sau no la dieu kien lockhead
+?!lookahead: Nguoc lai voi ?=
+(T|t)he(?=\sfat) : Bat dau bang T hoac t, theo sau no la he, sau do la khoang trang (\s) va fat 
+
+# CO FLAG
+i	Thiết lập không phân biệt chữ hoa chữ thường
+g	Tìm kiếm toàn chuỗi.
+m	Multiline: Anchor meta character works on each line. nhieu dong
+Các cờ này được đưa vào mẫu theo dạng "/RegExp/flags"
+VD: "/The/gi" : "The" la RegExp, "gi" la flags.
+
+# Regular Expressions (Regex) Character Classes Cheat Sheet
+https://www.petefreitag.com/cheatsheets/regex/character-classes/
+
+[:alpha:]	Any letter, [A-Za-z]
+[:upper:]	Any uppercase letter, [A-Z]
+[:lower:]	Any lowercase letter, [a-z]
+[:digit:]	Any digit, [0-9]
+[:alnum:]	Any alphanumeric character, [A-Za-z0-9]
+[:xdigit:]	Any hexadecimal digit, [0-9A-Fa-f]
+[:space:]	A tab, new line, vertical tab, form feed, carriage return, or space
+[:blank:]	A space or a tab.
+[:print:]	Any printable character
+[:punct:]	Any punctuation character: ! ' # S % & ' ( ) * + , - . / : ; < = > ? @ [ / ] ^ _ { | } ~
+[:graph:]	Any character defined as a printable character except those defined as part of the space character class
+[:word:]	Continuous string of alphanumeric characters and underscores.
+[:ascii:]	ASCII characters, in the range: 0-127
+[:cntrl:]	Any character not part of the character classes: [:upper:], [:lower:], [:alpha:], [:digit:], [:punct:], [:graph:], [:print:], [:xdigit:]
+
+Trong PHP các hàm sử dụng RegExp thường các biểu thức này nằm trong cặp /../
+
+
+
+
+VD1: search email
+
+$text = "Đây là địa chỉ 
+             email userabcguest@xuanthulab.net.vn và 
+             xyz@gmail.com cần trích xuất";
+
+$pattern = "/(([^\s.]+)@((.[^\s]+)(\..[^\s]+)))/im";
+
+VD2: search URL
+
+$text = 'Đây là địa chỉ website của tôi https://xuanthulab.net, 
+         đọc trang https://xuanthulab.net/lap-trinh-php/ để xem tôi viết về PHP..';
+
+$rsvalue = preg_match_all("/[[:alpha:]]+:\/\/[^<>[:space:]]+[[:alnum:]\/]/",$text, $out);
+
+VD3: search HOST
+
+$url        = 'https://www.xuanthulab.net/bieu-thuc-chinh-quy-regexp.html';
+$pattern    = '/^(https:\/\/|http:\/\/)?([^\/]+)/i';
+
+
+
+
+
+
+========================================================
+updating...
